@@ -17,7 +17,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    // Handful of starter URLs
+    [[self arrayController] addObject:[NSURL fileURLWithPath:NSHomeDirectory()]];
+    
+    [[self arrayController] addObject:[[NSFileManager defaultManager] URLForDirectory:NSDesktopDirectory
+                                                                             inDomain:NSUserDomainMask
+                                                                    appropriateForURL:nil
+                                                                               create:NO
+                                                                                error:NULL]];
 }
 
 @end
