@@ -27,4 +27,20 @@
                                                                                 error:NULL]];
 }
 
+- (void)addURL:(NSButton *)sender;
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseDirectories:YES];
+    [panel setCanChooseFiles:YES];
+    [panel setAllowsMultipleSelection:YES];
+    
+    [panel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
+        
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            [[self arrayController] addObjects:[panel URLs]];
+        }
+    }];
+}
+
 @end

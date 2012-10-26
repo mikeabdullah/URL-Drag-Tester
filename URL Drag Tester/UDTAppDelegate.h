@@ -13,4 +13,5 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSArrayController *arrayController;
 
+- (IBAction)addURL:(NSButton *)sender;
 @end
