@@ -25,6 +25,9 @@
                                                                     appropriateForURL:nil
                                                                                create:NO
                                                                                 error:NULL]];
+    
+    // Turn on drag support
+    [[self tableView] setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
 }
 
 - (void)addURL:(NSButton *)sender;
@@ -41,6 +44,13 @@
             [[self arrayController] addObjects:[panel URLs]];
         }
     }];
+}
+
+- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard;
+{
+    NSArray *urls = [[[self arrayController] arrangedObjects] objectsAtIndexes:rowIndexes];
+    [pboard clearContents];
+    return [pboard writeObjects:urls];
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface UDTAppDelegate : NSObject <NSApplicationDelegate>
+@interface UDTAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTableView *tableView;
 @property (assign) IBOutlet NSArrayController *arrayController;
 
 - (IBAction)addURL:(NSButton *)sender;
